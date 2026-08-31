@@ -52,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({
   const navTabs = [
     { id: 'prospecting', label: 'Prospecting & Pitch', icon: Sparkles, badge: 'Recruit' },
     { id: 'simulator', label: 'Simulator', icon: Calculator, badge: null },
-    { id: 'presentation', label: 'Presentation Deck', icon: MonitorPlay, badge: 'Slide 1' },
+    { id: 'presentation', label: 'Presentation Deck', icon: MonitorPlay, badge: null },
     { id: 'ai', label: 'AI Copilot & Generator', icon: Bot, badge: 'Gemini 3.7' },
     { id: 'org', label: 'Org Canvas', icon: Network, badge: `${totalAgents} Nodes` },
     { id: 'analytics', label: 'Analytics & Split', icon: PieChart, badge: null },

@@ -213,10 +213,10 @@ export const SlideOne: React.FC<SlideOneProps> = ({ tree, metrics }) => {
               EITHER
             </div>
 
-            {/* Option 1: 10 people RM20k */}
+            {/* Option 1: people RM20k */}
             <div className="flex-1 pr-3 border-r-2 border-slate-200">
               <div className="bg-amber-50/90 border-3 border-amber-500 rounded-2xl p-4 shadow-sm">
-                <p className="text-xs font-black text-amber-900 uppercase">GET <span className="text-2xl font-black text-amber-600">10</span> PEOPLE</p>
+                <p className="text-xs font-black text-amber-900 uppercase">GET <span className="text-2xl font-black text-amber-600">{Math.max(1, Math.round(totalSalesEpf / 20000))}</span> PEOPLE</p>
                 <p className="text-xs font-bold text-slate-700 mt-0.5">TO INVEST</p>
                 <p className="text-3xl font-black text-amber-700 tracking-tight mt-1">RM 20K</p>
                 <p className="text-xs font-bold text-slate-600 mt-1">EACH, FROM THEIR EPF.</p>
@@ -228,10 +228,10 @@ export const SlideOne: React.FC<SlideOneProps> = ({ tree, metrics }) => {
               <span className="text-3xl font-black text-slate-400 italic">OR</span>
             </div>
 
-            {/* Option 2: 20 people RM10k */}
+            {/* Option 2: people RM10k */}
             <div className="flex-1 pl-3">
               <div className="bg-emerald-50/90 border-3 border-emerald-600 rounded-2xl p-4 shadow-sm">
-                <p className="text-xs font-black text-emerald-900 uppercase">GET <span className="text-2xl font-black text-emerald-600">20</span> PEOPLE</p>
+                <p className="text-xs font-black text-emerald-900 uppercase">GET <span className="text-2xl font-black text-emerald-600">{Math.max(1, Math.round(totalSalesEpf / 10000))}</span> PEOPLE</p>
                 <p className="text-xs font-bold text-slate-700 mt-0.5">TO INVEST</p>
                 <p className="text-3xl font-black text-emerald-700 tracking-tight mt-1">RM 10K</p>
                 <p className="text-xs font-bold text-slate-600 mt-1">EACH, FROM THEIR EPF.</p>

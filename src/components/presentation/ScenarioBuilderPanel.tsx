@@ -99,14 +99,7 @@ export const ScenarioBuilderPanel: React.FC<ScenarioBuilderPanelProps> = ({
     <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm mb-6 space-y-6">
       
       {/* Slide Scenario Selector Tabs */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
-        <div className="flex items-center gap-2">
-          <span className="bg-indigo-50 text-indigo-700 border border-indigo-200 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-            Permanent Scenario Input Panel
-          </span>
-          <span className="text-xs text-slate-500 font-medium">Configure Slide 1 & Slide 2 Independently</span>
-        </div>
-
+      <div className="flex flex-col sm:flex-row sm:items-center justify-end gap-4 border-b border-slate-100 pb-4">
         <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
           <button
             onClick={() => setActiveSlideTab('slide1')}

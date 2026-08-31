@@ -42,13 +42,16 @@ export const PdfExportModal: React.FC<PdfExportModalProps> = ({
     windowWidth: 1920,
     windowHeight: 1080,
     onclone: (clonedDoc: Document) => {
-      const sheets = clonedDoc.querySelectorAll('style, link[rel="stylesheet"]');
-      sheets.forEach((sheet) => sheet.remove());
+      const sheets = clonedDoc.querySelectorAll('style');
+      sheets.forEach((sheet) => {
+        if (sheet.textContent) {
+          sheet.textContent = sheet.textContent.replace(/oklch\([^)]+\)/g, '#334155');
+        }
+      });
 
-      const cleanStyle = clonedDoc.createElement('style');
-      cleanStyle.innerHTML = `
+      const fallbackStyle = clonedDoc.createElement('style');
+      fallbackStyle.innerHTML = `
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
-        * { box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         :root {
           --color-slate-900: #0f172a;
           --color-slate-800: #1e293b;
@@ -86,9 +89,9 @@ export const PdfExportModal: React.FC<PdfExportModalProps> = ({
           --color-sky-300: #7dd3fc;
           --color-sky-100: #e0f2fe;
         }
-        body { color-scheme: light; margin: 0; padding: 0; background-color: #fcfdff; }
+        body { color-scheme: light; }
       `;
-      clonedDoc.head.appendChild(cleanStyle);
+      clonedDoc.head.appendChild(fallbackStyle);
     },
   });
 
