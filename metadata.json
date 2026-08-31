@@ -1,0 +1,8 @@
+{
+  "name": "Chatgpt Remix The First Remix KAF Agency Commission Simulator",
+  "description": "Modern financial agency hierarchy and commission simulator for unit trust consultants, agency managers, and GAMs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
