@@ -42,6 +42,11 @@ export const PdfExportModal: React.FC<PdfExportModalProps> = ({
     windowWidth: 1920,
     windowHeight: 1080,
     onclone: (clonedDoc: Document) => {
+      // Remove all external stylesheets to prevent oklch fetch/CORS errors on production builds (Netlify)
+      const linkSheets = clonedDoc.querySelectorAll('link[rel="stylesheet"]');
+      linkSheets.forEach((link) => link.remove());
+
+      // Sanitize any inline style tags
       const sheets = clonedDoc.querySelectorAll('style');
       sheets.forEach((sheet) => {
         if (sheet.textContent) {
@@ -52,6 +57,7 @@ export const PdfExportModal: React.FC<PdfExportModalProps> = ({
       const fallbackStyle = clonedDoc.createElement('style');
       fallbackStyle.innerHTML = `
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+        * { box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif !important; }
         :root {
           --color-slate-900: #0f172a;
           --color-slate-800: #1e293b;
@@ -89,7 +95,7 @@ export const PdfExportModal: React.FC<PdfExportModalProps> = ({
           --color-sky-300: #7dd3fc;
           --color-sky-100: #e0f2fe;
         }
-        body { color-scheme: light; }
+        body, div, span, h1, h2, h3, p { color-scheme: light; }
       `;
       clonedDoc.head.appendChild(fallbackStyle);
     },
